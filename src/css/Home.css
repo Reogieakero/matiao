@@ -1,0 +1,1199 @@
+/* --- Global Variables & Resets --- */
+:root {
+    --navy-dark: #143557;       /* Primary Color (Deeper Navy) */
+    --gold-accent: #FFC300;     /* Accent Color (Slightly Richer Gold) */
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+    --bg-light: #f4f7f9;        /* Light background for alternating sections (Subtle Blue Tint) */
+    --border-color: #dee2e6;
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Modern Font Stack */
+    --box-shadow-smooth: 0 4px 12px rgba(0, 0, 0, 0.08); /* Smoother, deeper shadow */
+    --navy-bg-section: #183e63; /* A dedicated slightly lighter navy for section backgrounds */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CRITICAL SCROLL FIXES (Updated for natural scroll behavior) --- */
+html, body {
+    /* Ensures the primary elements fill the viewport */
+    height: 100%; 
+}
+
+/* Ensures the main content container fills the screen but expands past it */
+#root, .home-page { 
+    min-height: 100vh;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden; 
+    background-color: white;
+}
+/* --- END CRITICAL SCROLL FIXES --- */
+
+a {
+    text-decoration: none;
+    color: var(--navy-dark);
+}
+
+.section-padding {
+    padding: 80px 80px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+/* NEW UTILITY CLASS */
+.bg-white {
+    background-color: white;
+}
+.bg-navy-dark {
+    background-color: var(--navy-bg-section);
+}
+
+.section-title {
+    font-size: 2.5rem; 
+    font-weight: 700;
+    color: var(--navy-dark);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 50px; 
+    font-size: 1.1rem;
+}
+
+/* --- Utility Buttons/Links --- */
+.link-btn {
+    display: inline-block;
+    color: var(--navy-dark);
+    font-weight: 600;
+    margin-top: 25px;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+.link-btn:hover {
+    color: var(--gold-accent);
+    border-bottom: 2px solid var(--gold-accent);
+}
+/* Re-styled view-all-btn for link-btn type usage */
+.view-all-btn {
+    display: block !important;
+    text-align: center;
+    margin-top: 50px; /* Separates it from the content above */
+}
+
+.primary-btn, .secondary-btn {
+    padding: 12px 25px; 
+    border-radius: 50px; 
+    font-weight: 700;
+    transition: all 0.3s;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.primary-btn {
+    background-color: var(--gold-accent);
+    color: var(--navy-dark);
+    border: 2px solid var(--gold-accent);
+}
+
+.primary-btn:hover {
+    background-color: var(--navy-dark);
+    color: var(--gold-accent);
+    border-color: var(--navy-dark);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
+}
+.secondary-btn:hover {
+    background-color: var(--text-light);
+    color: var(--navy-dark);
+    border-color: var(--text-light);
+}
+
+/* =========================================
+0. PAGE LEVEL ANIMATION (NEW)
+========================================= */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-page {
+    /* Apply the animation to the main page container */
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+
+/* =========================================
+1. HEADER (Sticky Navigation)
+========================================= */
+.main-header {
+    background-color: var(--navy-dark);
+    color: var(--text-light);
+    padding: 18px 80px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.barangay-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid var(--gold-accent); 
+}
+
+.barangay-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold-accent);
+}
+
+.header-nav {
+    display: block; /* Default to visible on desktop */
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--gold-accent);
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+.nav-portal-btn {
+    background-color: var(--gold-accent);
+    color: var(--navy-dark);
+    padding: 8px 18px;
+    border-radius: 50px; 
+    font-weight: 700;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.nav-portal-btn:hover {
+    background-color: var(--text-light);
+}
+
+.menu-toggle {
+    display: none; 
+}
+
+
+/* =========================================
+2. HERO SECTION
+========================================= */
+.hero-section {
+    height: 650px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; 
+    z-index: 1; 
+}
+
+/* --- OVERLAY IMPLEMENTATION --- */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Dark semi-transparent overlay */
+    background: rgba(20, 53, 87, 0.7); 
+    z-index: -1; 
+}
+/* -------------------------------- */
+
+.hero-overlay {
+    background: transparent; 
+    padding: 50px; 
+    max-width: 900px;
+    margin: 0 30px;
+    position: relative; 
+    z-index: 2; 
+}
+
+.hero-title {
+    font-size: 4rem; 
+    font-weight: 900;
+    color: var(--gold-accent);
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+
+.hero-message {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================
+3. ABOUT SECTION
+========================================= */
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.about-text {
+    flex: 2;
+    font-size: 1.05rem;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+}
+.about-text p:nth-child(2), .about-text p:nth-child(3) {
+    font-weight: 600; 
+    color: var(--navy-dark);
+}
+
+.about-map {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+.about-map iframe { 
+    max-width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-smooth);
+    border: 1px solid var(--border-color);
+}
+.map-caption {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+/* =========================================
+4. NEWS SECTION (Full-Width)
+========================================= */
+.news-section {
+    position: relative; 
+    overflow: hidden; 
+    padding: 80px 0; 
+}
+
+/* Container to constrain content width and center it */
+.news-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px; 
+    position: relative; 
+    z-index: 2; 
+}
+
+/* Abstract background line for the news content */
+.news-content-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    width: 1px; /* Very thin vertical line */
+    height: 100%;
+    background-color: var(--navy-dark);
+    opacity: 0.05; /* Make it subtle */
+    z-index: 1; /* Place it behind the news cards (z-index 2) */
+}
+
+/* Background Shapes for Aesthetics (Optional) */
+.news-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background-color: var(--gold-accent);
+    opacity: 0.1; 
+    border-radius: 20px;
+    transform: rotate(30deg);
+    z-index: 1;
+}
+
+.news-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background-color: var(--navy-dark);
+    opacity: 0.05; 
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Main Grid for News Cards */
+.news-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+    position: relative; 
+    z-index: 2; 
+}
+
+.news-card {
+    background-color: white;
+    padding: 30px; 
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-smooth);
+    border-top: 5px solid transparent; 
+    transition: transform 0.3s, box-shadow 0.3s, border-top-color 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.news-title-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--navy-dark);
+    line-height: 1.3;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.news-icon {
+    font-size: 3rem; 
+    opacity: 0.3; 
+    color: var(--gold-accent);
+    transition: opacity 0.3s;
+}
+.news-card:hover .news-icon {
+    opacity: 0.5; 
+}
+
+
+/* Tag Styling */
+.news-tag {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px; 
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.tag-advisory { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb;
+}
+.tag-event { 
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb;
+}
+.tag-program { 
+    background-color: #cce5ff; 
+    color: #004085; 
+    border: 1px solid #b8daff;
+}
+
+/* Card Border Top Color based on type */
+.tag-advisory ~ .news-icon { color: #dc3545; } 
+.tag-event ~ .news-icon { color: #28a745; }    
+.tag-program ~ .news-icon { color: #007bff; }  
+
+/* Final button styling */
+.news-section .view-all-btn {
+    display: block;
+    margin: 50px auto 0;
+    max-width: 350px;
+}
+
+
+/* =========================================
+5. SERVICES SECTION (NAVY BLUE SHADES + OVERLAY)
+========================================= */
+.services-section {
+    position: relative; /* CRITICAL for overlay */
+    overflow: hidden; /* CRITICAL for overlay */
+    padding: 80px 0; 
+    background-color: var(--navy-bg-section);
+}
+
+/* ADDED: Overlay/Abstract Element */
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 350px;
+    height: 350px;
+    background-color: var(--gold-accent);
+    opacity: 0.1; /* Very subtle */
+    border-radius: 40px;
+    transform: rotate(-20deg);
+    z-index: 1; /* Behind content, above background */
+}
+
+.services-section .section-title {
+    color: var(--gold-accent);
+    position: relative; /* Bring text above pseudo-element */
+    z-index: 2;
+}
+
+.services-section .section-subtitle {
+    color: var(--text-light); /* Adjusted for better contrast on navy background */
+    position: relative; /* Bring text above pseudo-element */
+    z-index: 2;
+}
+
+.services-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px; 
+    position: relative;
+    z-index: 2; /* CRITICAL: Must be above the pseudo-element */
+}
+
+.services-grid {
+    display: flex; 
+    justify-content: space-between; 
+    gap: 25px; 
+    text-align: center;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    flex: 0 0 calc(20% - 20px); 
+    min-width: 180px; 
+    
+    padding: 35px 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-smooth);
+    border-top: 5px solid var(--navy-dark);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-top-color: var(--gold-accent);
+}
+
+.service-icon {
+    font-size: 3rem; 
+    margin-bottom: 18px;
+    color: var(--navy-dark);
+}
+.service-card p {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    white-space: normal;
+}
+
+
+/* =========================================
+7. GALLERY SECTION (FULL WIDTH)
+========================================= */
+
+/* Wrapper to constrain titles and buttons to the max-width, while the section itself is full width */
+.section-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* Section styling for full-width background and vertical padding */
+.gallery-section-full-width {
+    padding-top: 80px;
+    padding-bottom: 80px; 
+}
+
+.gallery-section-full-width .gallery-grid {
+    /* New styles to stretch the grid and apply fluid padding */
+    max-width: none; 
+    padding: 0 80px; 
+    margin: 50px 0; /* Vertical spacing to replace the lost section-padding spacing */
+    
+    /* Keep the grid layout the same */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-smooth);
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block; 
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item .caption {
+    font-weight: 700;
+    padding: 10px 12px 5px;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--navy-dark);
+}
+.gallery-item .date {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+    padding: 0 12px 10px;
+}
+
+
+/* =========================================
+8. OFFICIALS SECTION
+========================================= */
+/* New Full-Width container */
+.officials-section-full-width {
+    padding-top: 80px;
+    padding-bottom: 80px; 
+}
+
+/* Revert text colors for the light background */
+.officials-section-full-width .section-title {
+    color: var(--navy-dark);
+}
+.officials-section-full-width .section-subtitle {
+    color: #6c757d;
+}
+
+.officials-message {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    border: 3px solid var(--gold-accent);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 195, 0, 0.2);
+}
+
+.message-text {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.captain-signature {
+    font-weight: 700;
+    color: var(--navy-dark);
+    font-size: 1.05rem;
+}
+
+/* NEW: Generic category title for Barangay Council, SK, and Staff */
+.category-title { /* RENAMED from .staff-title */
+    font-size: 1.8rem;
+    color: var(--navy-dark);
+    text-align: center;
+    margin: 40px 0 30px;
+    font-weight: 600;
+}
+
+.officials-grid {
+    display: grid;
+    /* CHANGE: Adjusted to 4 columns for significantly wider cards */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    text-align: center;
+    margin-bottom: 40px; /* Space between main grid and staff grid */
+}
+
+/* Staff Grid: Allows for 3 columns on staff row, flexing nicely */
+.officials-grid-staff {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 0;
+}
+
+/* Polishing the Official Card */
+.official-card {
+    text-align: center;
+    background-color: white;
+    padding: 20px 15px; /* Increased vertical padding for wider/taller look */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s, background-color 0.3s; /* ADDED border & background to transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    height: 100%; /* Ensures cards in the same row are same height */
+    display: flex;
+    flex-direction: column; /* Allows committee to be pushed to the bottom */
+    border: 1px solid var(--border-color); /* Added subtle default border */
+}
+.official-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--navy-dark); /* Highlight border on hover */
+    background-color: var(--bg-light); /* Subtle background change */
+}
+
+.official-photo {
+    width: 100%;
+    max-width: 120px; 
+    height: 150px; /* Increased height for a wider card look */
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 15px;
+    display: block;
+    /* Adjusted border for a cleaner look */
+    border: 3px solid var(--navy-dark); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.official-name {
+    font-size: 1.05rem;
+    font-weight: 700; /* Made name slightly bolder */
+    margin-bottom: 3px;
+    color: var(--navy-dark);
+}
+
+.official-position {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 10px; 
+}
+
+/* NEW: Committee style */
+.official-committee {
+    font-size: 0.8rem;
+    color: var(--navy-dark);
+    font-weight: 500;
+    margin-top: auto; /* Pushes committee to the bottom of the card */
+    line-height: 1.3;
+}
+.official-committee strong {
+    font-weight: 700;
+}
+
+/* NEW: Style for the "View All Officials" button (desktop default is hidden) */
+.view-all-officials-btn {
+    display: none; 
+    margin: 50px auto 0;
+    max-width: 300px;
+}
+
+
+/* =========================================
+9. FOOTER (Professional Grid Structure)
+========================================= */
+.main-footer {
+    background-color: #111;
+    color: var(--text-light);
+    padding: 50px 80px 30px; /* Top padding for content, bottom for copyright */
+}
+
+/* New Grid Container for 4-column layout */
+.footer-grid-container {
+    max-width: 1200px;
+    margin: 0 auto 40px; 
+    display: grid;
+    /* Setup 4 columns, with the first (brand) being slightly wider */
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
+    gap: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #333;
+}
+
+/* Column 1: Branding and Socials */
+.footer-brand .header-logo-container {
+    /* Override flex for logo to work on a dark background */
+    margin-bottom: 15px;
+}
+.footer-brand .barangay-name {
+    color: var(--gold-accent);
+}
+.footer-tagline {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.social-links-footer {
+    display: flex;
+    gap: 15px;
+}
+.social-icon-footer {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+.social-icon-footer:hover {
+    color: var(--gold-accent);
+}
+
+
+/* Columns 2 & 3: Links */
+.footer-links h4,
+.footer-contact-info h4 {
+    color: var(--gold-accent);
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a,
+.footer-contact-info a {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+.footer-links a:hover,
+.footer-contact-info a:hover {
+    color: var(--gold-accent);
+}
+
+/* Column 4: Contact Info */
+.footer-contact-info p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: #ccc;
+}
+.footer-contact-info strong {
+    color: var(--text-light);
+    font-weight: 700;
+}
+.contact-map-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--gold-accent) !important;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+}
+.contact-map-link:hover {
+    border-bottom: 1px solid var(--gold-accent);
+}
+
+
+/* Footer Bottom (Copyright) */
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+.developer-tag {
+    margin-top: 5px;
+}
+
+
+/* =========================================
+MOBILE RESPONSIVENESS (<= 768px)
+========================================= */
+@media (max-width: 768px) {
+    /* Global Section Spacing and Text */
+    .section-padding {
+        padding: 40px 10px; 
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-subtitle {
+        margin-bottom: 30px;
+    }
+
+    /* CRITICAL FIX: Add padding to main content for fixed header */
+    .home-page main {
+        padding-top: 60px; /* Space for the fixed header */
+    }
+
+    /* 1. HEADER - Enhanced Polish (Navigation Toggle) */
+    .main-header {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 195, 0, 0.15); 
+        position: fixed; 
+        top: 0;
+    }
+    .barangay-logo {
+        width: 35px;
+        height: 35px;
+    }
+    .barangay-name {
+        font-size: 1.05rem;
+        white-space: nowrap;
+    }
+    
+    /* Mobile Menu: Drop-down functionality */
+    .header-nav {
+        /* Menu is hidden by default (Drop-down) */
+        position: fixed; /* Keep fixed to stay below the fixed header at the top of the viewport */
+        top: 60px; /* Position below the header */
+        left: 0;
+        width: 100%; /* Full width for drop-down */
+        height: auto; 
+        
+        background-color: var(--navy-dark);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        z-index: 999; 
+        
+        /* CRITICAL: Drop-down animation properties */
+        max-height: 0;
+        overflow: hidden; /* Hides content when max-height is 0 */
+        transition: max-height 0.5s ease-in-out; /* Smooth transition for drop-down */
+        
+        padding-top: 0; 
+    }
+    
+    /* Menu is shown when toggled */
+    .header-nav--open {
+        max-height: 500px; /* Set a large enough max-height for content to drop down */
+    }
+    
+    .header-nav .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 20px 20px;
+        align-items: flex-start; /* LEFT ALIGNED */
+    }
+    .header-nav .nav-list li {
+        width: 100%;
+        text-align: left; /* LEFT ALIGNED */
+    }
+    .header-nav .nav-link {
+        display: block;
+        padding: 12px 10px; /* Increased padding */
+        font-size: 1.1rem; /* Slightly larger links */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-nav .nav-link:hover {
+        background-color: rgba(255, 195, 0, 0.1); /* Subtle hover background */
+    }
+    
+    .nav-portal-btn {
+        margin-left: 10px;
+        margin-top: 20px;
+        width: auto;
+        display: inline-block;
+    }
+
+    .menu-toggle {
+        display: block; 
+        background: none;
+        border: none;
+        color: var(--gold-accent);
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    
+    /* 2. HERO SECTION - Balanced Spacing */
+    .hero-section {
+        height: 500px; 
+    }
+    .hero-overlay {
+        padding: 20px;
+    }
+    .hero-title {
+        font-size: 2.5rem; 
+    }
+    .hero-message {
+        font-size: 1.0rem; 
+        margin-bottom: 25px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .primary-btn, .secondary-btn {
+        padding: 10px 20px;
+    }
+
+    /* 3. ABOUT SECTION */
+    .about-content {
+        flex-direction: column;
+    }
+    .about-map {
+        order: -1;
+        margin-bottom: 20px;
+        min-width: unset;
+        text-align: left; /* Match parent container alignment */
+    }
+    .about-map iframe {
+        height: 200px;
+        border-radius: 8px;
+    }
+    .about-text {
+        font-size: 1rem;
+    }
+    .map-caption {
+        text-align: left; /* Match parent container alignment */
+    }
+
+    /* 4. NEWS SECTION */
+    .news-section {
+        padding: 40px 0; 
+    }
+    .news-content-container {
+        padding: 0 10px; 
+    }
+    .news-content-container::before {
+        content: none; 
+    }
+    .news-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .news-card {
+        padding: 20px;
+    }
+    .news-title-text {
+        font-size: 1.25rem;
+    }
+    
+    /* 5. SERVICES SECTION - CRITICAL CHANGE TO 2 CARDS PER ROW */
+    .services-section {
+        padding: 40px 0; 
+    }
+    .services-content-container {
+        padding: 0 10px; 
+    }
+    .services-grid {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px;
+        flex-wrap: nowrap; 
+        justify-content: unset; 
+        overflow-x: hidden; 
+    }
+    .service-card {
+        flex: unset; 
+        min-width: unset; 
+        padding: 25px 10px; 
+    }
+    .service-icon {
+        font-size: 2.5rem;
+    }
+    .service-card p {
+        font-size: 0.95rem;
+    }
+
+    /* 7. GALLERY SECTION */
+    .gallery-section-full-width {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    /* Titles/Button wrapper left alignment */
+    .gallery-section-full-width .section-content-wrapper,
+    .gallery-section-full-width .gallery-grid {
+        padding: 0 10px; 
+        text-align: left;
+    }
+    /* Section titles are centered by default, reverting to center */
+    .gallery-section-full-width .section-title,
+    .gallery-section-full-width .section-subtitle {
+        text-align: center;
+    }
+    /* Button needs to be block for alignment if not centered by default */
+    .gallery-section-full-width .view-all-btn {
+        margin-left: 0;
+        text-align: left;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    .gallery-item img {
+        height: 120px;
+    }
+
+    /* 8. OFFICIALS SECTION (MOBILE HIDING LOGIC) */
+    .officials-section-full-width {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .officials-section-full-width .section-content-wrapper {
+        padding: 0 10px;
+    }
+    
+    /* Show the "View All" button on mobile */
+    .view-all-officials-btn {
+        display: block; 
+    }
+
+    /* Hide the entire Staff section, including its title and list wrapper */
+    .officials-staff-list,
+    .officials-section-full-width .category-title:last-of-type {
+        display: none;
+    }
+    
+    /* Hide all but the first card (Captain) in the main council grid */
+    .officials-grid-main .official-card:not(:first-child) {
+        display: none;
+    }
+
+    /* Hide all but the first card (SK Chairman) in the SK council grid */
+    .officials-grid-sk .official-card:not(:first-child) {
+        display: none;
+    }
+
+    /* Use 1 column grid for the visible officials (Captain and SK Chairman) */
+    .officials-grid {
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 8px; 
+        margin-bottom: 10px; 
+    }
+    /* Force 2 columns for the staff grid ONLY IF it was visible (which it isn't, but keeping the rule clean) */
+    .officials-grid-staff {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }
+    
+    /* Styling for the visible Captain/Chairman card */
+    .official-card {
+        padding: 10px 2px; 
+    }
+    .official-photo {
+        max-width: 65px; 
+        height: 85px; 
+    }
+    .official-name {
+        font-size: 0.95rem;
+    }
+    .official-position {
+        font-size: 0.75rem; 
+    }
+    .official-committee {
+        font-size: 0.65rem; 
+        line-height: 1.2;
+    }
+
+    /* 9. FOOTER - LEFT ALIGNMENT */
+    .main-footer {
+        padding: 30px 20px 15px;
+    }
+    .footer-grid-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* ** CRITICAL: Change alignment for all footer sections to LEFT ** */
+    .footer-brand,
+    .footer-links,
+    .footer-contact-info {
+        text-align: left; 
+    }
+    .footer-brand .header-logo-container {
+        justify-content: flex-start; /* LEFT ALIGNED */
+    }
+    .social-links-footer {
+        justify-content: flex-start; /* LEFT ALIGNED */
+    }
+    .footer-links a {
+        padding: 3px 0;
+        display: block; 
+        margin: 0;
+    }
+    /* Ensure bottom text is also left-aligned */
+    .footer-bottom {
+        text-align: left; /* LEFT ALIGNED */
+        padding-top: 15px; 
+    }
+    .developer-tag {
+        margin-top: 5px;
+    }
+}
