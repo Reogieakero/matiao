@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/Login.css'; 
-import logoPlaceholder from '../assests/Matiao Logo.jpg'; 
+import logoPlaceholder from '../assets/MatiaoLogo.jpg'; 
 
 const Login = () => {
     const [values, setValues] = useState({

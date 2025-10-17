@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import MatiaoLogo from '../assests/Matiao Logo.jpg';
+import MatiaoLogo from '../assets/MatiaoLogo.jpg';
 
 const Footer = () => (
     <footer className="main-footer">

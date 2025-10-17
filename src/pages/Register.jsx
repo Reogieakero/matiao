@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/Register.css';
-import logoPlaceholder from '../assests/Matiao Logo.jpg';
+import logoPlaceholder from '../assets/MatiaoLogo.jpg';
 
 const Register = () => {
     const [values, setValues] = useState({

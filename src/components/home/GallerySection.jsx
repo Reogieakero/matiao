@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Matiao from '../assests/Matiao.jpg';
+import Matiao from '../../assets/Matiao.jpg';
 
 const GallerySection = () => {
     const galleryItems = [
