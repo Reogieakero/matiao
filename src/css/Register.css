@@ -1,0 +1,387 @@
+:root {
+--navy-dark: #1a4570;   
+--navy-medium: #34495e;
+--navy-light: #170c69;
+--gold-accent: #FFD700;
+--gold-light: #FFEA90;
+--text-dark: #333333;
+--text-gray: #6B7280;
+--white-panel: #FFFFFF;
+--border-light: #E5E7EB;
+--text-light-gray: #E0E0E0; 
+--success-green: #2ecc71;  /* For met requirements */
+--failure-red: #e74c3c;    /* For unmet requirements */
+}
+
+/* ---------------------------------------------------- */
+/* NON-SCROLLABLE SETUP */
+/* ---------------------------------------------------- */
+body, html, #root {
+height: 100%;
+margin: 0;
+font-family: Arial, sans-serif;
+/* KEY: Prevents the main window from scrolling */
+}
+
+.register-page-wrapper {
+position: relative;
+width: 100%;
+/* KEY: Fill the viewport exactly */
+height: 100vh; 
+display: flex;
+justify-content: center;
+/* Vertically centers the content container */
+align-items: center; 
+/* Remove vertical padding since we are using align-items: center now */
+padding: 0 20px; 
+}
+
+.register-page-wrapper::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('../assets/Matiao.jpg') no-repeat center center/cover;
+filter: brightness(0.5);
+background-color: var(--navy-dark); 
+opacity: 0.85;
+z-index: 0;
+}
+
+/* ---------------------------------------------------- */
+/* LAYOUT CONTAINERS */
+/* ---------------------------------------------------- */
+
+.absolute-logo-container {
+position: absolute;
+top: 40px;
+left: 80px; 
+z-index: 2; 
+}
+
+.matiao-absolute-logo {
+width: 80px;
+height: 80px;
+border-radius: 50%; 
+object-fit: cover;
+border: 4px solid var(--white-panel);
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.register-content-container {
+position: relative;
+z-index: 1;
+display: flex;
+width: 100%;
+max-width: 900px;
+height: auto; 
+min-height: 600px; 
+/* Allow internal scrolling if content exceeds screen height */
+max-height: 95vh; 
+overflow-y: auto;
+border-radius: 12px;
+overflow-x: hidden; /* Prevent horizontal scroll bar */
+margin-top: 31px; 
+background-color: rgba(255, 255, 255, 0.95);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
+}
+
+.register-left-panel {
+flex: 1.2;
+padding: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: var(--white-panel);
+color: var(--text-dark);
+}
+
+.register-form-area {
+width: 100%;
+max-width: 350px; 
+margin: 0 auto;
+padding-top: 0;
+}
+
+.register-title-left {
+font-size: 1.8rem;
+font-weight: bold;
+color: var(--navy-dark); 
+margin-bottom: 5px;
+}
+
+.register-subtitle-left {
+font-size: 0.9rem;
+color: var(--text-gray);
+margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------- */
+/* FORM ELEMENTS */
+/* ---------------------------------------------------- */
+
+.form-group {
+    /* KEY: Set relative positioning to contain the absolute checklist */
+    position: relative; 
+}
+
+.form-label-left {
+display: block;
+color: var(--text-dark);
+margin-bottom: 5px;
+font-size: 0.9rem;
+font-weight: 500;
+}
+
+.form-input-left {
+width: 100%;
+padding: 10px 12px;
+border: 1px solid var(--border-light);
+border-radius: 6px;
+box-sizing: border-box;
+font-size: 1rem;
+/* Standard margin spacing now that checklist is floating */
+margin-bottom: 15px; 
+}
+
+.form-input-left:focus {
+border-color: var(--navy-dark);
+outline: none;
+box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.2);
+}
+
+/* Validation error highlighting */
+.form-input-left.input-error {
+    border-color: var(--failure-red); 
+    box-shadow: 0 0 0 1px var(--failure-red);
+}
+
+/* --- PASSWORD REQUIREMENT CHECKLIST STYLES (OVERLAY) --- */
+.password-checklist {
+    /* KEY: Makes it float over other elements */
+    position: absolute; 
+    /* Position right below the input box */
+    top: 100%; 
+    left: 0;
+    /* KEY: Match the input width */
+    width: 100%; 
+    /* Ensure it's above other elements */
+    z-index: 10; 
+    /* Popover appearance */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    padding: 10px 15px;
+    margin-top: 5px; 
+    border-radius: 8px;
+    background-color: var(--white-panel);
+    border: 1px solid var(--navy-medium);
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    font-size: 0.8rem;
+    padding-left: 5px;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+}
+
+.checklist-item.valid {
+    color: var(--success-green);
+    font-weight: 500;
+}
+
+.checklist-item.invalid {
+    color: var(--failure-red);
+}
+
+.checklist-item .icon {
+    margin-right: 8px;
+    font-size: 1.1rem; 
+    line-height: 1;
+    font-weight: bold; 
+}
+
+/* Error Message Styling */
+.validation-error.match-error {
+    color: var(--failure-red); 
+    font-size: 0.8rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+.validation-error.general-error {
+    color: var(--failure-red); 
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--failure-red);
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+/* --- SUBMIT BUTTON STYLES WITH ANIMATION --- */
+.submit-button-left {
+width: 100%;
+background-color: var(--navy-dark); 
+color: var(--gold-accent);
+padding: 12px 15px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: bold;
+margin-top: 10px;
+transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.submit-button-left:hover {
+background-color: var(--navy-medium);
+}
+
+.submit-button-left:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: var(--navy-light);
+}
+
+
+.login-link-section-left {
+text-align: center;
+margin-top: 25px;
+font-size: 0.9rem;
+color: var(--text-gray);
+}
+
+.login-link-left {
+color: var(--navy-dark);
+text-decoration: none;
+margin-left: 5px;
+font-weight: 600;
+}
+
+/* ---------------------------------------------------- */
+/* RIGHT PANEL (AESTHETIC) */
+/* ---------------------------------------------------- */
+
+.register-right-panel {
+flex: 1;
+position: relative;
+padding: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: white;
+z-index: 1;
+
+background: linear-gradient(135deg, var(--navy-medium) 0%, var(--navy-light) 100%);
+border-left: 1px solid rgba(255, 255, 255, 0.15); 
+
+}
+
+.right-panel-content {
+position: relative;
+z-index: 1;
+transform: translateY(0); 
+text-shadow: 1px 1px 4px rgba(0,0,0,0.4); 
+}
+
+.right-panel-title {
+font-size: 2.2rem;
+font-weight: bold;
+color: var(--gold-accent);
+margin-bottom: 15px;
+line-height: 1.2;
+}
+
+.right-panel-text {
+font-size: 1rem;
+color: var(--text-light-gray);
+max-width: 300px;
+margin: 0 auto;
+}
+
+/* ==================================================
+MOBILE RESPONSIVENESS
+==================================================
+*/
+@media (max-width: 900px) {
+    .register-content-container {
+        max-width: 700px;
+        min-height: 550px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Main wrapper uses full height and center alignment */
+    .register-page-wrapper {
+        padding: 0 15px; /* only horizontal padding remains */
+    }
+
+    /* 1. Stack Panels Vertically */
+    .register-content-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px; 
+        height: auto;
+        min-height: auto;
+        max-height: 98vh; /* Use most of the screen height */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+    }
+
+    /* 2. Absolute Logo Adjustment */
+    .absolute-logo-container {
+        display: none; 
+        top: 20px;       
+        left: 20px;      
+    }
+    .matiao-absolute-logo {
+        display: none;
+        width: 60px;     
+        height: 60px;
+    }
+
+    /* 3. Panel Ordering and Padding */
+    .register-left-panel {
+        order: 2; 
+        padding: 30px 20px; 
+    }
+
+    .register-right-panel {
+        order: 1; 
+        min-height: 180px;
+        padding: 30px 20px;
+        border-left: none; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    
+    .register-right-panel, .register-left-panel {
+        flex: none; 
+    }
+    
+    .register-form-area {
+        max-width: 100%; 
+    }
+
+    /* 4. Text Adjustments */
+    .register-title-left, .register-subtitle-left {
+        text-align: center; 
+    }
+    
+    .right-panel-title {
+        font-size: 1.5rem; 
+        margin-bottom: 10px;
+    }
+
+    .right-panel-text {
+        font-size: 0.9rem;
+    }
+    
+    /* Overlay naturally adapts due to width: 100% */
+}

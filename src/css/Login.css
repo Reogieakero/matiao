@@ -1,0 +1,311 @@
+:root {
+--navy-dark: #1a4570;   
+--navy-medium: #34495e;
+--navy-light: #170c69;
+--gold-accent: #FFD700;
+--gold-light: #FFEA90;
+--text-dark: #333333;
+--text-gray: #6B7280;
+--white-panel: #FFFFFF;
+--border-light: #E5E7EB;
+--text-light-gray: #E0E0E0; 
+--success-green: #2ecc71;  
+--failure-red: #e74c3c;    
+}
+
+/* Overall Page Background Setup */
+body, html, #root {
+height: 100%;
+margin: 0;
+font-family: Arial, sans-serif;
+}
+
+.login-page-wrapper {
+position: relative;
+width: 100%;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+padding: 100px 20px; 
+}
+
+.login-page-wrapper::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('../assets/Matiao.jpg') no-repeat center center/cover;
+filter: brightness(0.5);
+background-color: var(--navy-dark); 
+opacity: 0.85;
+z-index: 0;
+}
+
+
+/* Absolute Logo: Positioned for desktop/tablet */
+.absolute-logo-container {
+position: absolute;
+top: 40px;
+left: 80px; 
+z-index: 2; 
+}
+
+.matiao-absolute-logo {
+width: 80px;
+height: 80px;
+border-radius: 50%; 
+object-fit: cover;
+border: 4px solid var(--white-panel);
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.login-content-container {
+position: relative;
+z-index: 1;
+display: flex;
+width: 100%;
+max-width: 900px;
+height: auto; 
+min-height: 600px; 
+border-radius: 12px;
+overflow: hidden;
+margin-top: 31px; 
+background-color: rgba(255, 255, 255, 0.95);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
+}
+
+.login-left-panel {
+flex: 1.2;
+padding: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: var(--white-panel);
+color: var(--text-dark);
+}
+
+.login-form-area {
+width: 100%;
+max-width: 350px; 
+margin: 0 auto;
+padding-top: 0;
+}
+
+.login-title-left {
+font-size: 1.8rem;
+font-weight: bold;
+color: var(--navy-dark); 
+margin-bottom: 5px;
+}
+
+.login-subtitle-left {
+font-size: 0.9rem;
+color: var(--text-gray);
+margin-bottom: 30px;
+}
+
+.form-group {
+    position: relative; 
+}
+
+.form-label-left {
+display: block;
+color: var(--text-dark);
+margin-bottom: 5px;
+font-size: 0.9rem;
+font-weight: 500;
+}
+
+.form-input-left {
+width: 100%;
+padding: 10px 12px;
+border: 1px solid var(--border-light);
+border-radius: 6px;
+box-sizing: border-box;
+font-size: 1rem;
+margin-bottom: 15px; 
+}
+
+.form-input-left:focus {
+border-color: var(--navy-dark);
+outline: none;
+box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.2);
+}
+
+/* ENHANCED Error message styling for a professional look */
+.validation-error.general-error {
+    color: #8B0000; /* Darker red for contrast */
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    margin-bottom: 20px;
+    padding: 12px 15px; 
+    
+    /* Soft background from failure color */
+    background-color: #fcebeb; 
+    
+    /* Professional border style: strong left bar */
+    border: 1px solid var(--failure-red);
+    border-left: 5px solid var(--failure-red); 
+    border-radius: 6px;
+    
+    text-align: left; /* Align text to the left for better reading */
+    transition: all 0.3s ease;
+    
+    display: flex; 
+    align-items: center;
+}
+
+/* --- SUBMIT BUTTON STYLES WITH ANIMATION --- */
+.submit-button-left {
+width: 100%;
+background-color: var(--navy-dark); 
+color: var(--gold-accent);
+padding: 12px 15px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: bold;
+margin-top: 10px;
+transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.submit-button-left:hover {
+background-color: var(--navy-medium);
+}
+
+.submit-button-left:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: var(--navy-light);
+}
+
+
+.register-link-section-left {
+text-align: center;
+margin-top: 25px;
+font-size: 0.9rem;
+color: var(--text-gray);
+}
+
+.register-link-left {
+color: var(--navy-dark);
+text-decoration: none;
+margin-left: 5px;
+font-weight: 600;
+}
+
+/* --- RIGHT PANEL: Aesthetic Navy Panel with Gradient --- */
+.login-right-panel {
+flex: 1;
+position: relative;
+padding: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: white;
+z-index: 1;
+
+background: linear-gradient(135deg, var(--navy-medium) 0%, var(--navy-light) 100%);
+border-left: 1px solid rgba(255, 255, 255, 0.15); 
+
+}
+
+.right-panel-content {
+position: relative;
+z-index: 1;
+transform: translateY(0); 
+text-shadow: 1px 1px 4px rgba(0,0,0,0.4); 
+}
+
+.right-panel-title {
+font-size: 2.2rem;
+font-weight: bold;
+color: var(--gold-accent);
+margin-bottom: 15px;
+line-height: 1.2;
+}
+
+.right-panel-text {
+font-size: 1rem;
+color: var(--text-light-gray);
+max-width: 300px;
+margin: 0 auto;
+}
+
+/* ==================================================
+MOBILE RESPONSIVENESS
+==================================================
+*/
+@media (max-width: 900px) {
+    .login-content-container {
+        max-width: 700px;
+        min-height: 550px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .login-page-wrapper {
+        padding: 50px 15px; 
+    }
+
+    .login-content-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px; 
+        height: auto;
+        min-height: auto;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+    }
+
+    .absolute-logo-container {
+        display: none; 
+        top: 20px;       
+        left: 20px;      
+    }
+    .matiao-absolute-logo {
+        display: none;
+        width: 60px;     
+        height: 60px;
+    }
+
+    .login-left-panel {
+        order: 2; 
+        padding: 30px 20px; 
+    }
+
+    .login-right-panel {
+        order: 1; 
+        min-height: 180px;
+        padding: 30px 20px;
+        border-left: none; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    
+    .login-right-panel, .login-left-panel {
+        flex: none; 
+    }
+    
+    .login-form-area {
+        max-width: 100%; 
+    }
+
+    .login-title-left, .login-subtitle-left {
+        text-align: center; 
+    }
+    
+    .right-panel-title {
+        font-size: 1.5rem; 
+        margin-bottom: 10px;
+    }
+
+    .right-panel-text {
+        font-size: 0.9rem;
+    }
+}

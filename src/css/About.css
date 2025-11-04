@@ -1,0 +1,442 @@
+/* --- Use Global Variables for Consistency --- */
+:root {
+    --navy-dark: #143557;       /* Primary Color */
+    --gold-accent: #FFC300;     /* Accent Color */
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+    --bg-light: #f4f7f9;        /* Light background */
+    --box-shadow-smooth: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+}
+
+/* --- Base Page Styles --- */
+.about-us-page {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.section-padding {
+    padding: 80px 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.link-btn {
+    display: inline-block;
+    padding: 10px 0;
+    font-weight: 600;
+    color: var(--gold-accent); /* Use gold as the primary link color */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-btn:hover {
+    color: var(--navy-dark);
+    transform: translateX(5px);
+}
+
+.primary-btn {
+    background-color: var(--navy-dark);
+    color: var(--text-light);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: var(--gold-accent);
+    color: var(--navy-dark);
+    transform: translateY(-2px);
+}
+
+/* --- ANIMATIONS (Pro-Level) --- */
+
+/* Keyframes for subtle entrance animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleInCenter {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Application of Animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0; /* Start hidden */
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.scale-in-center {
+    animation: scaleInCenter 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Delay for staggered effect */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+
+/* --- 1. Hero Banner --- */
+.about-hero-section {
+    background-color: var(--navy-dark);
+    color: var(--text-light);
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.about-hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.about-hero-section p {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+/* --- 2. Overview & Seal Section --- */
+.overview-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.overview-text p {
+    margin-bottom: 20px;
+}
+
+.seal-container {
+    text-align: center;
+    padding: 30px 15px;
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow-smooth);
+}
+
+.barangay-seal {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.seal-title {
+    color: var(--navy-dark);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.seal-meaning {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* --- 3. Vision, Mission, Values (VMO) Section - OUTSTANDING DESIGN --- */
+.vision-mission-section {
+    background-color: var(--navy-dark);
+    display: flex;
+    justify-content: center;
+    padding: 60px 40px;
+    gap: 30px;
+}
+
+.vmo-card {
+    background-color: var(--text-light);
+    flex: 1;
+    max-width: 380px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--gold-accent); /* Striking accent line */
+}
+
+.vmo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.vmo-card h2 {
+    color: var(--navy-dark);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.vmo-icon {
+    font-size: 2.5rem;
+    color: var(--gold-accent);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* --- 4. History Section --- */
+.history-section {
+    background-color: #fff;
+}
+
+.history-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.milestone-text {
+    font-weight: 600;
+    color: var(--navy-dark);
+    border-left: 5px solid var(--gold-accent);
+    padding-left: 15px;
+    margin-top: 30px;
+}
+
+/* --- 5. Programs & Projects Summary --- */
+.programs-section .section-subtitle {
+    text-align: center;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.program-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-smooth);
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.program-card:hover {
+    background-color: var(--gold-accent);
+    transform: translateY(-5px);
+}
+
+.program-icon {
+    font-size: 2rem;
+    color: var(--navy-dark);
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.program-card:hover .program-icon {
+    color: var(--text-dark);
+}
+
+.program-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--navy-dark);
+    transition: color 0.3s;
+}
+
+.program-card:hover h3 {
+    color: var(--text-dark);
+}
+
+.programs-section .view-all-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* --- 6. Organizational Structure --- */
+.officials-structure-section {
+    text-align: center;
+}
+
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 30px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+.chart-node {
+    background-color: #fff;
+    border: 2px solid var(--navy-dark);
+    color: var(--navy-dark);
+    padding: 15px 25px;
+    margin: 15px 0;
+    border-radius: 50px; /* Pill-shaped nodes for a modern look */
+    font-weight: 600;
+    box-shadow: var(--box-shadow-smooth);
+}
+
+.captain-node {
+    background-color: var(--gold-accent);
+    color: var(--navy-dark);
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    border: none;
+    position: relative;
+    z-index: 10;
+}
+
+.node-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    border: 3px solid var(--navy-dark);
+}
+
+.chart-line {
+    width: 3px;
+    height: 30px;
+    background-color: var(--navy-dark);
+}
+
+.council-node {
+    font-size: 1.1rem;
+}
+
+.staff-node-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.staff-node {
+    font-size: 0.9rem;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+
+/* --- MOBILE RESPONSIVENESS (for devices smaller than 768px) --- */
+@media (max-width: 992px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* 1. Overview Grid */
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .seal-container {
+        order: -1; /* Place seal above text on mobile */
+    }
+
+    /* 2. VMO Section */
+    .vision-mission-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    .vmo-card {
+        max-width: 100%;
+    }
+
+    /* 5. Programs Grid */
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 6. Org Chart */
+    .org-chart {
+        margin: 30px auto;
+    }
+
+    .staff-node-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
