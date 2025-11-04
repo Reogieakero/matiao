@@ -1,0 +1,337 @@
+/* frontend/src/css/About.css - Minimalist, International Design */
+
+/* Reusing Global Classes: .section-padding, .section-title, .section-subtitle (Removed .bg-light) */
+
+/* Apply the same fade-in animation as the Home page for consistency */
+.about-page {
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+/* -----------------------------------------
+    MISSION/VISION SECTION (Pro-Level Minimalist)
+------------------------------------------ */
+/* *** OVERRIDE: Remove gray background to achieve pure white minimalism *** */
+.mission-vision-section {
+    background-color: white;
+}
+
+.mv-content {
+    display: flex;
+    gap: 40px; /* Reduced gap slightly for tighter grouping of distinct cards */
+    flex-wrap: wrap; 
+    margin-top: 50px;
+}
+
+.mv-card {
+    flex: 1 1 45%; 
+    padding: 40px; /* Generous padding for content */
+    border-radius: 6px; /* A touch of rounding for a modern feel */
+    background-color: white; /* Lift the card from the bg-light section */
+    
+    /* Subtle, pro-level shadow for depth without clutter */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    
+    /* Strong Left Accent Line for Focus - Default color */
+    border-left: 6px solid var(--border-color); 
+    
+    /* Transition for border color, shadow, and lift */
+    transition: all 0.3s ease-out; 
+}
+
+/* Specific Accent Colors on the Left Border for clear distinction */
+.mv-mission-card {
+    border-left-color: var(--navy-dark); 
+}
+
+.mv-vision-card {
+    border-left-color: var(--gold-accent); 
+}
+
+.mv-card:hover {
+    /* Lift the card slightly for hover effect */
+    transform: translateY(-5px); 
+    /* Enhance the shadow for more pronounced effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    /* Border color stays as is (set by specific card class) */
+}
+
+.mv-card h3 {
+    color: var(--navy-dark);
+    font-size: 2.2rem; /* Slightly larger, more impactful title */
+    font-weight: 800;
+    margin-bottom: 25px; /* More space below the title */
+    display: flex;
+    align-items: center;
+}
+
+/* Icon Styling: Use accent color and slightly more space */
+.mv-card h3 .mv-icon {
+    font-size: 2rem;
+    color: var(--gold-accent);
+    margin-right: 20px;
+}
+
+.mv-card p {
+    font-size: 1.05rem; /* High readability */
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+/* -----------------------------------------
+    HISTORY SECTION (Minimalist Carousel)
+------------------------------------------ */
+.history-section.full-width {
+    padding-top: var(--section-padding-top); 
+    padding-bottom: var(--section-padding-bottom); 
+    padding-left: 0; 
+    padding-right: 0; 
+    overflow: hidden; 
+    background-color: white;
+}
+
+.history-section .section-content {
+    max-width: var(--max-content-width); 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--section-padding-horizontal); 
+    padding-right: var(--section-padding-horizontal);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.history-timeline-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px; 
+}
+
+.history-timeline-track {
+    display: flex;
+    width: calc(400px * 8); 
+    animation: scroll-left 40s linear infinite; 
+}
+
+.history-timeline-wrapper:hover .history-timeline-track {
+    animation-play-state: paused;
+}
+
+.timeline-item-carousel {
+    flex-shrink: 0; 
+    width: 400px; 
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+.timeline-content-carousel {
+    padding: 25px 30px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    border-top: 4px solid var(--gold-accent); 
+    height: 100%; 
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.timeline-content-carousel:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content-carousel h4 {
+    color: var(--navy-dark);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.timeline-content-carousel p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-400px * 4)); 
+    }
+}
+
+/* -----------------------------------------
+    CORE VALUES SECTION (Pro-Level Grid)
+------------------------------------------ */
+.core-values-section {
+    background-color: white; /* Ensure white background */
+}
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); /* Slightly wider min width */
+    gap: 30px; 
+    margin-top: 50px;
+    text-align: center;
+}
+
+.value-card {
+    padding: 35px 25px; /* Slightly more vertical padding */
+    background-color: #fefefe; /* Very slight off-white for visual pop */
+    border-radius: 12px; /* Smoother, modern corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft initial shadow */
+    border: 1px solid var(--border-color); /* Light border for definition */
+    border-top: 5px solid transparent; /* Reserve space for accent on top */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Professional transition curve */
+}
+
+.value-card:hover {
+    transform: translateY(-10px); /* More significant lift */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Pronounced, clean shadow */
+    border-color: var(--gold-accent); /* Highlight all borders */
+    border-top: 5px solid var(--gold-accent); /* Accent top border color */
+}
+
+/* Icon Styling - High-Contrast Circle */
+.value-icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: var(--navy-dark); /* Dark background for high contrast */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.value-card:hover .value-icon-container {
+    background-color: var(--gold-accent); /* Swap background on hover */
+    transform: rotate(5deg);
+}
+
+.value-icon {
+    font-size: 2.2rem; /* Larger icon */
+    color: white; /* White icon on dark background */
+}
+
+.value-card h5 {
+    color: var(--navy-dark);
+    font-size: 1.25rem; /* More impactful title */
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+
+/* -----------------------------------------
+    ABOUT HERO SECTION (Minimalist Header)
+------------------------------------------ */
+.about-hero-section {
+    position: relative;
+    height: 35vh; 
+    width: 100%;
+    /* Simple background overlay with high contrast */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                url('/assets/barangay-office-bg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content-overlay {
+    color: white;
+    z-index: 10;
+    padding: 20px;
+}
+
+.hero-title-about {
+    font-size: 3rem;
+    font-weight: 900; /* Very strong title */
+    margin-bottom: 10px;
+    text-shadow: none;
+}
+
+.hero-subtitle-about {
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-breadcrumbs {
+    font-size: 0.85rem;
+    color: #cccccc;
+}
+
+.hero-breadcrumbs a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.hero-breadcrumbs a:hover {
+    color: var(--gold-accent);
+}
+
+/* =========================================
+    MOBILE RESPONSIVENESS (<= 768px)
+========================================= */
+@media (max-width: 768px) {
+    /* MISSION/VISION */
+    .mv-content {
+        flex-direction: column;
+        gap: 20px; 
+    }
+    .mv-card { 
+        flex: 1 1 100%;
+        padding: 25px; 
+    }
+    .mv-card h3 { 
+        font-size: 1.6rem; 
+        margin-bottom: 15px;
+    }
+    .mv-card h3 .mv-icon { font-size: 1.8rem; } 
+    .mv-card p { font-size: 1rem; }
+
+    /* HISTORY CAROUSEL - Mobile adjustments */
+    .history-section.full-width {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .history-timeline-track {
+        width: calc(300px * 8); 
+        animation-duration: 30s; 
+    }
+    .timeline-item-carousel {
+        width: 300px; 
+    }
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% {
+            transform: translateX(calc(-300px * 4)); 
+        }
+    }
+    
+    /* CORE VALUES */
+    .values-grid { 
+        gap: 20px; 
+    }
+    .value-card {
+        transform: none !important; /* Remove lift on hover for mobile */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .value-card:hover {
+        transform: none;
+    }
+
+    /* ABOUT HERO SECTION */
+    .about-hero-section { height: 28vh; }
+    .hero-title-about { font-size: 2.2rem; }
+    .hero-subtitle-about { font-size: 1rem; }
+}
