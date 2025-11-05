@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
 import About from './pages/About';
+import Services from './pages/Services';
 import './index.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/services' element={<Services />} />
       </Routes>
     </BrowserRouter>
   );
