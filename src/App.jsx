@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Landing from './pages/Landing';
 import About from './pages/About';
 import Services from './pages/Services';
+import News from './pages/News';
 import './index.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/services' element={<Services />} />
+        <Route path='/news' element={<News />} />
       </Routes>
     </BrowserRouter>
   );
