@@ -6,6 +6,7 @@ import Landing from './pages/Landing';
 import About from './pages/About';
 import Services from './pages/Services';
 import News from './pages/News';
+import Contact from './pages/Contact';
 import './index.css';
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/services' element={<Services />} />
         <Route path='/news' element={<News />} />
+        <Route path='/contact' element={<Contact />} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -1,9 +1,12 @@
+// frontend/src/components/news/NewsCard.jsx
 import PropTypes from "prop-types";
 
 const NewsCard = ({ image, title, date, description }) => {
   return (
     <div className="news-card">
       <div className="news-image">
+        {/* This <img> element uses width: 100% in your CSS to span the full width of its parent (.news-card),
+            and the .news-card has overflow: hidden, ensuring no side padding for the image. */}
         <img src={image} alt={title} />
       </div>
 
@@ -19,7 +22,9 @@ const NewsCard = ({ image, title, date, description }) => {
   );
 };
 
+// Prop types definition
 NewsCard.propTypes = {
+  // Assuming the imported image variable resolves to a string URL
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,

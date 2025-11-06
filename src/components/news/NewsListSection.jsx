@@ -1,5 +1,6 @@
 // frontend/src/components/news/NewsListSection.jsx
 import NewsCard from './NewsCard';
+import Matiao from '../../assets/Matiao.jpg';
 
 const sampleNews = [
   {
@@ -7,21 +8,21 @@ const sampleNews = [
     title: "Barangay Clean-Up Drive Scheduled",
     date: "November 10, 2025",
     description: "Join us this Saturday for a community clean-up to promote environmental care.",
-    image: "/assets/news1.jpg",
+    image: Matiao, // Matiao image used
   },
   {
     id: 2,
     title: "New Barangay Hall Renovation Completed",
     date: "October 28, 2025",
     description: "Our newly renovated barangay hall is now open to serve residents better.",
-    image: "/assets/news2.jpg",
+    image: Matiao, // Matiao image used
   },
   {
     id: 3,
     title: "Vaccination Drive Extended",
     date: "October 22, 2025",
     description: "COVID-19 vaccination program extended for senior citizens and minors.",
-    image: "/assets/news3.jpg",
+    image: Matiao, // Matiao image used
   },
 ];
 

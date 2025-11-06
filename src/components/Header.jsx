@@ -14,7 +14,7 @@ const Header = () => {
     window.location.href = "/";
   };
 
-  const hideUserOptionsOn = ["/home", "/about", "/services"];
+  const hideUserOptionsOn = ["/home", "/about", "/services", "/news", "/contact"];
   const onLandingPage = location.pathname === "/";
 
   useEffect(() => {

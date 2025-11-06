@@ -1,0 +1,337 @@
+/* ============================
+   CONTACT PAGE STYLES (FINAL)
+   ============================ */
+
+:root {
+  --navy-dark: #143557;
+  --gold-accent: #ffc300;
+  --bg-light: #f4f7f9;
+  --text-dark: #212529;
+  --text-light: #f8f9fa;
+  --transition-base: all 0.3s ease;
+}
+
+/* ============================
+   CONTACT INFO SECTION
+   ============================ */
+.contact-info-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.category-subtitle {
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- Grid Layout --- */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Info Card Styling --- */
+.info-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--navy-dark);
+  transition: var(--transition-base);
+  text-align: center;
+  position: relative;
+}
+
+.info-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Icon Circle --- */
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy-dark);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+  transition: var(--transition-base);
+}
+
+.icon-large {
+  color: var(--gold-accent);
+  width: 35px;
+  height: 35px;
+}
+
+.info-card:hover .icon-wrapper {
+  background: var(--gold-accent);
+}
+
+.info-card:hover .icon-large {
+  color: var(--navy-dark);
+}
+
+/* --- Titles & Text --- */
+.info-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- Contact List --- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  text-align: left;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.contact-list li svg {
+  color: var(--gold-accent);
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+/* --- Emergency Card --- */
+.emergency-card {
+  border-top-color: #dc3545;
+}
+
+.emergency-contact {
+  margin-top: 20px;
+}
+
+.emergency-label {
+  font-weight: 700;
+  color: #dc3545;
+  letter-spacing: 1px;
+}
+
+.emergency-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #dc3545;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* --- Address --- */
+.location-card address {
+  font-style: normal;
+  color: #444;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+/* --- Hover Accent for Different Cards --- */
+.inquiry-card:hover {
+  border-top-color: var(--gold-accent);
+}
+
+.location-card:hover {
+  border-top-color: #17a2b8;
+}
+
+/* ============================
+   COMMUNITY ISSUE REPORT FORM
+   ============================ */
+
+.issue-report-section {
+  background: var(--bg-light);
+  padding: 80px 20px;
+  border-top: 3px solid var(--gold-accent);
+  text-align: center;
+}
+
+.issue-report-section .category-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  color: #555;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* --- Form Container --- */
+.report-form-container {
+  max-width: 800px;
+  background: #fff;
+  padding: 50px 40px;
+  border-radius: 18px;
+  margin: 0 auto;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+  transition: var(--transition-base);
+}
+
+.report-form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Form Fields --- */
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--navy-dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.8px solid #ced4da;
+  font-size: 1rem;
+  transition: var(--transition-base);
+  background: #fff;
+  color: #333;
+}
+
+/* --- Input Hover/Focus Effects --- */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.2);
+}
+
+/* --- Dropdown (Select) Styling --- */
+.form-group select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--navy-dark) 50%),
+    linear-gradient(135deg, var(--navy-dark) 50%, transparent 50%);
+  background-position: calc(100% - 25px) center, calc(100% - 20px) center;
+  background-size: 8px 8px, 8px 8px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.form-group select:hover {
+  border-color: var(--navy-dark);
+  background-color: #fdfdfd;
+}
+
+/* --- Textarea --- */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* --- Submit Button --- */
+.primary-btn.submit-report-btn {
+  background: var(--navy-dark);
+  color: var(--gold-accent);
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.primary-btn.submit-report-btn:hover {
+  background: var(--gold-accent);
+  color: var(--navy-dark);
+  transform: translateY(-2px);
+}
+
+/* --- Form Note --- */
+.form-note {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 20px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+   ============================ */
+@media (max-width: 768px) {
+  .contact-info-section {
+    padding: 60px 20px;
+  }
+
+  .category-title {
+    font-size: 1.9rem;
+  }
+
+  .info-card {
+    padding: 30px 25px;
+  }
+
+  .emergency-number {
+    font-size: 1.8rem;
+  }
+
+  .report-form-container {
+    padding: 40px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .issue-report-section .category-title {
+    font-size: 1.8rem;
+  }
+
+  .primary-btn.submit-report-btn {
+    width: 100%;
+  }
+}

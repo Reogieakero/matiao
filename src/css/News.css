@@ -1,5 +1,3 @@
-
-
 .news-page {
   animation: fadeInSlideUp 0.8s ease-out forwards;
 }
@@ -58,7 +56,8 @@
 .news-card {
   background-color: #fff;
   border-radius: 12px;
-  overflow: hidden;
+  /* Key for image layout: Prevents child elements (like the image) from overflowing the borders. */
+  overflow: hidden; 
   border: 1px solid #ddd;
   transition: all 0.3s ease;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -71,13 +70,15 @@
 }
 
 .news-image img {
-  width: 100%;
+  /* Key for image layout: Ensures no side spacing */
+  width: 100%; 
   height: 200px;
   object-fit: cover;
 }
 
 .news-content {
-  padding: 20px;
+  /* This padding applies to the text content, leaving the image untouched */
+  padding: 20px; 
   text-align: left;
 }
 
@@ -142,7 +143,8 @@
   }
 
   .news-card {
-    transform: none !important;
+    /* Disables the hover effect for smaller screens for better touch usability */
+    transform: none !important; 
   }
 }
 
